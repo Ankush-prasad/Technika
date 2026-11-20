@@ -1,11 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodGo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    Hello
+  <div class="app-shell">
+    <aside class="sidebar">
+      <button class="brand" type="button" aria-label="Go to home">
+        <span class="brand-mark">🍔</span>
+        <span>Food<span>Go</span></span>
+      </button>
+
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-item" type="button" data-section="Home"><span class="nav-icon">⌂</span><span>Home</span></button>
+        <button class="nav-item active" type="button" data-section="Explore"><span class="nav-icon">▦</span><span>Explore</span></button>
+        <button class="nav-item" type="button" data-section="Favourites"><span class="nav-icon">▢</span><span>Favourites</span></button>
+        <button class="nav-item" type="button" data-section="Orders"><span class="nav-icon">▤</span><span>Orders</span></button>
+        <button class="nav-item" type="button" data-section="Messages"><span class="nav-icon">✉</span><span>Messages</span><b class="notice">4</b></button>
+        <button class="nav-item" type="button" data-section="Settings"><span class="nav-icon">⚙</span><span>Settings</span></button>
+      </nav>
+
+      <div class="promo-card">
+        <button class="promo-close" type="button" aria-label="Close promotion">×</button>
+        <div class="promo-icon">🍔</div>
+        <strong>Food groceries</strong>
+        <strong>delivery service in</strong>
+        <strong>New jersey</strong>
+        <small>Delivery fee: $3.99</small>
+        <button class="order-button" type="button">Order now <span>→</span></button>
+      </div>
+
+      <button class="profile" type="button">
+        <span class="avatar">A</span>
+        <span class="profile-copy"><strong>Annette Black</strong><small>annetteb42@gmail.com</small></span>
+        <span class="profile-menu">⌃<br>⌄</span>
+      </button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="header-left">
+          <button class="location-pill" id="locationButton" type="button"><span class="pin">♟</span><strong>Elizabeth, New Jersey</strong><b>⌄</b></button>
+          <button class="mode-pill" id="serviceModeButton" type="button"><span class="pin orange">⌖</span><strong>Pickup</strong><span>⌄</span></button>
+          <button class="mode-pill" id="dealsButton" type="button"><span class="pin red">♨</span><strong>Best deals</strong><span>⌄</span></button>
+        </div>
+        <div class="header-actions">
+          <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Search for anything..."></label>
+          <button class="icon-button cart-button" type="button" aria-label="Shopping cart">🛒<b id="cartCount">0</b></button>
+          <button class="icon-button cart-button orange-cart" type="button" aria-label="Shopping bag">▣</button>
+        </div>
+      </header>
+
+      <section class="content">
+        <section class="hero">
+          <div class="hero-copy">
+            <span class="hero-kicker">GOOD FOOD. ZERO BORING.</span>
+            <h1>Big cravings.<br><em>Bigger</em> flavor.</h1>
+            <p>Your next favorite is only a few taps away.</p>
+            <button class="hero-cta" id="exploreButton" type="button">Explore the good stuff <span>↗</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <span class="hero-spark spark-one">✳</span>
+            <span class="hero-spark spark-two">✦</span>
+            <span class="hero-orbit"></span>
+            <span class="hero-food">🍔</span>
+            <span class="hero-sticker">FRESH<br>AF!</span>
+          </div>
+          <div class="hero-note">MADE FOR<br>THE HUNGRY <span>✦</span></div>
+        </section>
+
+        <div class="section-heading">
+          <h2>Restaurants nearby</h2>
+          <button class="tiny-filter" id="distanceButton" type="button" aria-label="Change restaurant distance">⌘ <span>10 km</span>⌄</button>
+        </div>
+
+        <div class="restaurant-grid" id="restaurants"></div>
+
+        <div class="section-heading popular-heading">
+          <h2>Popular orders</h2>
+          <button class="tiny-filter" type="button" id="sortButton">≡ <span>Today</span>⌄</button>
+        </div>
+
+        <div class="food-grid" id="foodGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <dialog class="app-dialog" id="appDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-shell">
+      <button class="dialog-close" id="dialogClose" type="button" aria-label="Close dialog">×</button>
+      <div id="dialogContent"></div>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
 </body>
 </html>
